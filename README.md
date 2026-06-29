@@ -8,9 +8,11 @@ HOFEES is an automated feature engineering framework that progressively construc
 
 ## Example Usage
 
+```python
 from sklearn.ensemble import RandomForestRegressor
 from HOFEES.workflow import AutoFEWorkflow
 
+# Create the AutoFE workflow
 wf = AutoFEWorkflow(
     task="regression",
     model=RandomForestRegressor(random_state=42),
@@ -26,12 +28,16 @@ wf = AutoFEWorkflow(
     encode_categoricals=False
 )
 
+# Learn the engineered feature space
 wf.run(X_train, y_train)
 
+# Transform the datasets
 X_train_transformed = wf.transform_selected(X_train)
 X_test_transformed = wf.transform_selected(X_test)
 
-The transformed datasets can now be used to train a ML model
+# The transformed datasets can now be used to train
+# any downstream machine learning model.
+```
 
 ## Citation
 
