@@ -1,6 +1,6 @@
 # HOFEES
 
-This repository contains the anonymous implementation of **HOFEES (Higher-Order Feature Engineering through Exhaustive Search for Lower Dimensional Feature Subspaces)** together with the datasets and experiment scripts used in the accompanying AAAI submission.
+This repository contains the anonymous implementation of **HOFEES (Higher-Order Automated Feature Engineering through Exhaustive Search for Lower Dimensional Feature Subspaces)** together with the datasets and experiment scripts used in the accompanying AAAI submission.
 
 ## Overview
 
@@ -11,7 +11,6 @@ HOFEES is an automated feature engineering framework that progressively construc
 from sklearn.ensemble import RandomForestRegressor
 from HOFEES.workflow import AutoFEWorkflow
 
-# Create the workflow
 wf = AutoFEWorkflow(
     task="regression",
     model=RandomForestRegressor(random_state=42),
@@ -27,10 +26,8 @@ wf = AutoFEWorkflow(
     encode_categoricals=False
 )
 
-# Learn the engineered feature space
 wf.run(X_train, y_train)
 
-# Transform datasets
 X_train_transformed = wf.transform_selected(X_train)
 X_test_transformed = wf.transform_selected(X_test)
 
